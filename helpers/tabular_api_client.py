@@ -75,13 +75,14 @@ def _tabular_error_payload_and_messages(
     if not isinstance(data, dict):
         return None, []
 
+    payload: dict = data
     error_msgs: list[str] = []
-    for error in data["errors"]:
+    for error in payload["errors"]:
         m = error["detail"]["message"]
         s = m.strip()
         if s:
             error_msgs.append(s)
-    return data, error_msgs
+    return payload, error_msgs
 
 
 def _raise_for_tabular_failure(
