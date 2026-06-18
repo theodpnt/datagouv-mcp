@@ -91,7 +91,11 @@ async def test_track_matomo_tool_forwards_cip_from_context(httpx_mock, monkeypat
     monkeypatch.setattr(matomo, "MATOMO_SITE_ID", "7")
     monkeypatch.setattr(matomo, "MATOMO_AUTH_TOKEN", "tok")
     url_tok, ua_tok, cip_tok = matomo.apply_matomo_request_context(
-        {"user-agent": "ToolUA/2", "host": "mcp.example", "x-forwarded-for": "203.0.113.42"},
+        {
+            "user-agent": "ToolUA/2",
+            "host": "mcp.example",
+            "x-forwarded-for": "203.0.113.42",
+        },
         "/mcp",
     )
     httpx_mock.add_response()

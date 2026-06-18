@@ -110,7 +110,9 @@ def with_monitoring(
                 k.decode("utf-8"): v.decode("utf-8")
                 for k, v in scope.get("headers", [])
             }
-            url_token, ua_token, cip_token = apply_matomo_request_context(headers_dict, path)
+            url_token, ua_token, cip_token = apply_matomo_request_context(
+                headers_dict, path
+            )
             host: str = headers_dict.get("host", "localhost")
             full_url: str = f"https://{host}{path}"
             try:
