@@ -59,7 +59,7 @@ async def _post_matomo(payload: dict) -> None:
         resp.raise_for_status()
     except Exception as e:
         logging.getLogger(MAIN_LOGGER_NAME).error(
-            "Matomo tracking failed: %s", e, exc_info=True
+            f"Matomo tracking failed: {e}", exc_info=True
         )
 
 
