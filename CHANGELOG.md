@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.29 (2026-06-24)
+
+- fix(health): run health probe in-process to avoid FD leak ([#121](https://github.com/datagouv/datagouv-mcp/pull/121))
+- Replace HTTPX with niquests ([#119](https://github.com/datagouv/datagouv-mcp/pull/119))
+
+
 ## 0.2.28 (2026-06-23)
 
 - fix(docs): fix link in github issues template
