@@ -74,3 +74,11 @@ async def test_post_matomo_skips_when_not_configured(matomo_post_route, monkeypa
     monkeypatch.setattr(matomo, "MATOMO_SITE_ID", "1")
     await matomo.track_matomo_tool("search_datasets")
     assert not matomo_post_route.called
+
+
+def test_matomo_tool_event_for_uses_override():
+    token = matomo.apply_matomo_tool_event_action("health_check")
+    try:
+        assert matomo.matomo_tool_event_for("search_datasets") == "health_check"
+    finally:
+        matomo.reset_matomo_tool_event_action(token)
